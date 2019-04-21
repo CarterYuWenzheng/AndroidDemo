@@ -1,15 +1,62 @@
+/**
+ * gradle使用解释，学习的：https://www.cnblogs.com/steffen/p/9212765.html
+ */
+
+//com.android.application：表示这是一个应用程序模块，可以直接运行
+//com.android.library：表示这是一个库模块，依赖于别的应用程序运行
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
+    //程序在编译时会检查lint，有任何错误就会停止build
+    lintOptions{
+        //出现错误，是否停止打包
+        abortOnError false
+        //打包release版本时，是否进行检测
+        checkReleaseBuilds false
+    }
+
+    //编译sdk的版本，API Level
     compileSdkVersion 28
+
     defaultConfig {
         applicationId "com.carter.androiddemo"
-        minSdkVersion 23
-        targetSdkVersion 28
+        minSdkVersion 23//最小sdk版本，否则无法使用
+        targetSdkVersion 28//目标sdk版本，建议使用的版本
         versionCode 1
         versionName "1.0"
+        //Instrumentation单元测试
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    //默认的文件路径
+    sourceSets{
+        main{
+
+        }
+        debug.setRoot('')//debug模式的路径
+        release.setRoot('')//release模式的路径
+    }
+
+    //签名配置
+    signingConfigs{
+        //发布版签名配置
+        release{
+
+        }
+        //debug版签名配置
+        debug{
+
+        }
+    }
+
+    //进行java的版本配置，以便使用对应版本的新特性;kotlin项目没有这个设置
+    compileOptions{
+
+    }
+
+    //指定生成安装文件的配置，包含debug和release，直接运行的是debug安装文件
     buildTypes {
         release {
             minifyEnabled false
@@ -18,6 +65,11 @@ android {
     }
 }
 
+//指定当前项目的全部依赖关系：本地依赖、库依赖、远程依赖
+//本地依赖：对本地jar包或目录添加依赖
+//库依赖：  对项目中的库模块添加依赖
+//远程依赖：对jcenter库上的开源项目依赖
+//依赖格式为：“域名：项目名：版本号”
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
@@ -26,4 +78,25 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //butterknife
+    implementation rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+
+    //di
+    implementation rootProject.ext.dependencies["dagger2"]
+    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    implementation rootProject.ext.dependencies["dagger2-android"]
+    implementation rootProject.ext.dependencies["dagger2-android-support"]
+    annotationProcessor rootProject.ext.dependencies["dagger2-android-processor"]
+    implementation rootProject.ext.dependencies["javax_annotation"]
+}
+
+//使用maven仓库。
+//Android有两个标准的library文件服务器，一个jcenter，一个maven。
+//jcenter有的maven可能没有，maven有的jcenter也可能没有。
+//如果使用jcenter，就把mavenCentral替换成jcenter()
+repositories {
+    mavenCentral()
 }
