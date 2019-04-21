@@ -7,6 +7,10 @@ buildscript {
     repositories {
         google()
         jcenter()//代码管理库：使用之后可以在项目中使用jcenter上的开源项目
+        mavenCentral()
+        maven{
+            url "https://jitpack.io"
+        }
     }
     //依赖包
     dependencies {
@@ -23,6 +27,10 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven {
+            url "https://jitpack.io"
+        }
         
     }
 }
