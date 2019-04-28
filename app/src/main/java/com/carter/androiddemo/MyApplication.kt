@@ -22,7 +22,7 @@ class MyApplication : Application
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
-        
+
     }
 
     override fun activityInjector(): AndroidInjector<Activity>? {

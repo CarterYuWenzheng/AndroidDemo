@@ -2,6 +2,9 @@ package com.carter.androiddemo.base.view
 
 interface IView {
 
+    /**
+     * 显示错误信息
+     */
     abstract fun showErrorMsg(errorMsg: String)
 
     abstract fun showLoading()
