@@ -16,6 +16,7 @@
     widget：小工具、部件
     component：组件
     plugin：插件
+    observer：观察者
     
     3.
     往GitHub提交空文件夹，需要在文件夹内新建一个.gitkeep文件，然后在.gitignore中取消忽略.gitkeep。
