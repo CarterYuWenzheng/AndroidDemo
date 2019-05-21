@@ -2,7 +2,7 @@ package com.carter.androiddemo.base.presenter
 
 import com.carter.androiddemo.base.view.IView
 
-public interface IPresenter<T: IView> {
+interface IPresenter<T: IView> {
 
     fun attachView(view : T)
 

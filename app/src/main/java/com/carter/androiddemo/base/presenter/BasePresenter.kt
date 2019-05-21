@@ -1,14 +1,28 @@
 package com.carter.androiddemo.base.presenter
 
 import com.carter.androiddemo.base.view.IView
+import com.carter.androiddemo.core.data.DataManager
+import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-class BasePresenter<T : IView> :IPresenter<T>{
+abstract class BasePresenter<T : IView> : IPresenter<T> {
+
+    private var mView: T? =null
+
+    @Inject
+    lateinit var dataManager: DataManager
+
+    private var compositeDisposable: CompositeDisposable? = null
+
     override fun attachView(view: T) {
-
+        this.mView = view
+        registerEventBus()
     }
 
     override fun detachView() {
-
+        mView = null
+        compositeDisposable!!.clear()
+        unregisterEventBus()
     }
 
     override fun reload() {

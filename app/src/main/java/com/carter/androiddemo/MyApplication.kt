@@ -1,5 +1,6 @@
 package com.carter.androiddemo
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
 import android.content.Context
@@ -8,25 +9,30 @@ import dagger.android.DaggerApplication
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import javax.inject.Inject
+import kotlin.properties.Delegates
 
-class MyApplication : Application
-,HasActivityInjector{
-
-    constructor() : super()
+@SuppressLint("Registered")
+class MyApplication : Application()
+        , HasActivityInjector {
 
     @Inject
     lateinit var mAndroidInjector: DispatchingAndroidInjector<Activity>
 
-    lateinit var context:Context
+    companion object {
+        val context:Context by Delegates.notNull()
+    }
 
     override fun onCreate() {
         super.onCreate()
-        context = applicationContext
 
     }
 
     override fun activityInjector(): AndroidInjector<Activity>? {
         return mAndroidInjector
+    }
+
+    internal fun getContext(): Context {
+        return context
     }
 
 }
