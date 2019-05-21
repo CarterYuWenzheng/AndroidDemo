@@ -1,5 +1,7 @@
 package com.carter.androiddemo.core.constant
 
-class constant {
-
+object Constant {
+    object DB{
+        const val DB_NAME = "name.db"
+    }
 }
