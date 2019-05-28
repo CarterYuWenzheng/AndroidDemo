@@ -2,9 +2,9 @@ package com.carter.androiddemo.base.presenter
 
 import com.carter.androiddemo.base.view.IView
 
-interface IPresenter<T: IView> {
+interface IPresenter<T : IView> {
 
-    fun attachView(view : T)
+    fun attachView(view: T)
 
     fun detachView()
 
@@ -14,11 +14,11 @@ interface IPresenter<T: IView> {
 
     fun unregisterEventBus()
 
-    fun setLoginStatus(loginStatus:Boolean)
+    fun setLoginStatus(loginStatus: Boolean)
 
-    fun getLoginStatus()
+    fun getLoginStatus(): Boolean
 
-    fun getLoginAccount()
+    fun getLoginAccount(): String
 
-    fun setLoginAccount()
+    fun setLoginAccount(account: String)
 }

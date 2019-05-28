@@ -11,7 +11,7 @@ import com.gyf.barlibrary.ImmersionBar
 import kotlinx.android.synthetic.main.toolbar.view.*
 
 @SuppressLint("RestrictedApi")
-public abstract class AbstractSimpleActivity : SupportActivity() {
+abstract class AbstractSimpleActivity : SupportActivity() {
 
     lateinit var unBinder: Unbinder
 

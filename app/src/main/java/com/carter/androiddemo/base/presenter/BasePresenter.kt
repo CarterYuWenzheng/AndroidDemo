@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 abstract class BasePresenter<T : IView> : IPresenter<T> {
 
-    private var mView: T? =null
+    private var mView: T? = null
 
     @Inject
     lateinit var dataManager: DataManager
@@ -38,19 +38,19 @@ abstract class BasePresenter<T : IView> : IPresenter<T> {
     }
 
     override fun setLoginStatus(loginStatus: Boolean) {
-
+        dataManager.setLoginState(loginStatus)
     }
 
-    override fun getLoginStatus() {
-
+    override fun getLoginStatus(): Boolean {
+        return dataManager.getLoginState()
     }
 
-    override fun getLoginAccount() {
-
+    override fun getLoginAccount(): String {
+        return dataManager.getLoginAccount()
     }
 
-    override fun setLoginAccount() {
-
+    override fun setLoginAccount(account: String) {
+        dataManager.setLoginAccount(account)
     }
 
 }

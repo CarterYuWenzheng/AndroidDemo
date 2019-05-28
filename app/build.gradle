@@ -10,7 +10,7 @@ apply plugin: 'kotlin-android'
 
 android {
     //程序在编译时会检查lint，有任何错误就会停止build
-    lintOptions{
+    lintOptions {
         //出现错误，是否停止打包
         abortOnError false
         //打包release版本时，是否进行检测
@@ -31,8 +31,8 @@ android {
     }
 
     //默认的文件路径
-    sourceSets{
-        main{
+    sourceSets {
+        main {
 
         }
         debug.setRoot('')//debug模式的路径
@@ -40,19 +40,19 @@ android {
     }
 
     //签名配置
-    signingConfigs{
+    signingConfigs {
         //发布版签名配置
-        release{
+        release {
 
         }
         //debug版签名配置
-        debug{
+        debug {
 
         }
     }
 
     //进行java的版本配置，以便使用对应版本的新特性;kotlin项目没有这个设置
-    compileOptions{
+    compileOptions {
 
     }
 
@@ -100,6 +100,7 @@ dependencies {
     implementation rootProject.ext.dependencies["converter-gson"]
     implementation rootProject.ext.dependencies["adapter-rxjava2"]
     implementation rootProject.ext.dependencies["glide"]
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor rootProject.ext.dependencies["glide_compiler"]
 
     //dao

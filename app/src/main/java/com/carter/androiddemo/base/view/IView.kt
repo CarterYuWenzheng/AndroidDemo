@@ -5,21 +5,21 @@ interface IView {
     /**
      * 显示错误信息
      */
-    abstract fun showErrorMsg(errorMsg: String)
+    fun showErrorMsg(errorMsg: String)
 
-    abstract fun showLoading()
+    fun showLoading()
 
-    abstract fun hideLoading()
+    fun hideLoading()
 
-    abstract fun showError()
+    fun showError()
 
-    abstract fun showNoNetwork()
+    fun showNoNetwork()
 
-    abstract fun showEmpty()
+    fun showEmpty()
 
-    abstract fun showContent()
+    fun showContent()
 
-    abstract fun handleLoginSuccess()
+    fun handleLoginSuccess()
 
-    abstract fun handleLogoutSuccess()
+    fun handleLogoutSuccess()
 }
