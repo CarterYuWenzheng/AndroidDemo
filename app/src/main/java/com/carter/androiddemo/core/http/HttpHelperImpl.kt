@@ -1,5 +1,14 @@
 package com.carter.androiddemo.core.http
 
-class HttpHelperImpl :HttpHelper {
+import com.carter.androiddemo.core.http.api.ApiService
+import com.carter.androiddemo.modules.login.LoginData
+import io.reactivex.Observable
+import javax.inject.Inject
+
+class HttpHelperImpl(@Inject private val apiService: ApiService) : HttpHelper {
+
+    override fun register(username: String, password: String, rePassWord: String): Observable<BaseResponse<LoginData>> {
+        return apiService.register(username, password, rePassWord)
+    }
 
 }
