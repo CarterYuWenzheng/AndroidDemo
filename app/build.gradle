@@ -29,6 +29,10 @@ android {
         versionName "1.0"
         //Instrumentation单元测试
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk{
+            moduleName "Java2C" //so文件名
+            abiFilters "armeabi", "armeabi-v7a", "x86" //CPU类型
+        }
     }
 
     //默认的文件路径
