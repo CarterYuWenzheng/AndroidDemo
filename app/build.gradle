@@ -7,6 +7,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     //程序在编译时会检查lint，有任何错误就会停止build
@@ -53,7 +54,8 @@ android {
 
     //进行java的版本配置，以便使用对应版本的新特性;kotlin项目没有这个设置
     compileOptions {
-
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
     }
 
     //指定生成安装文件的配置，包含debug和release，直接运行的是debug安装文件
@@ -101,7 +103,7 @@ dependencies {
     implementation rootProject.ext.dependencies["adapter-rxjava2"]
     implementation rootProject.ext.dependencies["glide"]
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    annotationProcessor rootProject.ext.dependencies["glide_compiler"]
+    kapt rootProject.ext.dependencies["glide_compiler"]
 
     //dao
     implementation rootProject.ext.dependencies["greendao"]
