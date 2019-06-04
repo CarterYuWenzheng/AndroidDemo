@@ -1,7 +1,7 @@
 package com.carter.androiddemo.core.http.api
 
 import com.carter.androiddemo.core.http.BaseResponse
-import com.carter.androiddemo.modules.login.LoginData
+import com.carter.androiddemo.modules.login.bean.LoginData
 import io.reactivex.Observable
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded

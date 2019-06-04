@@ -1,7 +1,7 @@
 package com.carter.androiddemo.core.http
 
 import com.carter.androiddemo.core.http.api.ApiService
-import com.carter.androiddemo.modules.login.LoginData
+import com.carter.androiddemo.modules.login.bean.LoginData
 import io.reactivex.Observable
 import javax.inject.Inject
 

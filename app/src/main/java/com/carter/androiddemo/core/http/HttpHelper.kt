@@ -1,6 +1,6 @@
 package com.carter.androiddemo.core.http
 
-import com.carter.androiddemo.modules.login.LoginData
+import com.carter.androiddemo.modules.login.bean.LoginData
 import io.reactivex.Observable
 
 interface HttpHelper {

@@ -5,7 +5,7 @@ import com.carter.androiddemo.core.greenDao.HistoryData
 import com.carter.androiddemo.core.http.BaseResponse
 import com.carter.androiddemo.core.http.HttpHelper
 import com.carter.androiddemo.core.preference.PreferenceHelper
-import com.carter.androiddemo.modules.login.LoginData
+import com.carter.androiddemo.modules.login.bean.LoginData
 import io.reactivex.Observable
 
 class DataManager(private val httpHelper: HttpHelper, private val dbHelper: DBHelper, private val preferenceHelper: PreferenceHelper) : HttpHelper, DBHelper, PreferenceHelper {

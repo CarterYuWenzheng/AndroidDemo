@@ -12,7 +12,7 @@ import android.widget.PopupWindow
 import android.widget.TextView
 import com.carter.androiddemo.MyApplication
 import com.carter.androiddemo.R
-import com.carter.androiddemo.modules.login.LoginActivity
+import com.carter.androiddemo.modules.login.ui.activity.LoginActivity
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
