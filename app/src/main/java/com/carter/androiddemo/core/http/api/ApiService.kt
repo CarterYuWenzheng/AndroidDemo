@@ -10,6 +10,10 @@ import retrofit2.http.POST
 
 interface ApiService {
 
+    companion object {
+        const val BASE_URL = "https://www.wanandroid.com/"
+    }
+
     /**
      * 注册
      * https://www.wanandroid.com/user/register

@@ -4,6 +4,7 @@ import com.carter.androiddemo.base.presenter.IPresenter
 import com.carter.androiddemo.base.view.IView
 
 interface MainContract {
+
     interface View: IView{
 
     }

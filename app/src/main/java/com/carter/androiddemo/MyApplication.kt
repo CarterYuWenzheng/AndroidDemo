@@ -6,6 +6,8 @@ import android.app.Application
 import android.content.Context
 import android.support.v7.app.AppCompatDelegate
 import com.carter.androiddemo.core.data.DataManager
+import com.carter.androiddemo.di.module.AppModule
+import com.carter.androiddemo.di.module.HttpModule
 import com.squareup.leakcanary.LeakCanary
 import com.squareup.leakcanary.RefWatcher
 import dagger.android.AndroidInjector
@@ -46,6 +48,10 @@ class MyApplication : Application()
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
+        DaggerAppComponent.builder()
+                .appModule(AppModule(this))
+                .httpModule(HttpModule())
+                .build().inject(this)
     }
 
     private fun setupLeakCanary(): RefWatcher {
