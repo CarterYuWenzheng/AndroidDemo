@@ -9,6 +9,10 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+kapt {
+    generateStubs = true
+}
+
 android {
     //程序在编译时会检查lint，有任何错误就会停止build
     lintOptions {
@@ -131,13 +135,13 @@ dependencies {
 
     //di
     implementation rootProject.ext.dependencies["dagger2"]
-    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
     implementation rootProject.ext.dependencies["dagger2-android"]
     implementation rootProject.ext.dependencies["dagger2-android-support"]
-    annotationProcessor rootProject.ext.dependencies["dagger2-android-processor"]
+    kapt rootProject.ext.dependencies["dagger2-compiler"]
+    kapt rootProject.ext.dependencies["dagger2-android-processor"]
     implementation rootProject.ext.dependencies["javax_annotation"]
     implementation rootProject.ext.dependencies["butterknife"]
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    kapt rootProject.ext.dependencies["butterknife-compiler"]
 
     //multidex
     implementation rootProject.ext.dependencies["multidex"]

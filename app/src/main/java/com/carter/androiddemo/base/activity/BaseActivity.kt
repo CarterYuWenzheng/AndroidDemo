@@ -23,11 +23,11 @@ import javax.inject.Inject
 abstract class BaseActivity<T : IPresenter<IView>> : AbstractSimpleActivity(), HasSupportFragmentInjector, IView {
 
     @Inject
-    private lateinit var mFragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+    lateinit var mFragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
     @Inject
-    protected lateinit var mPresenter: T
+    lateinit var mPresenter: T
 
-    private lateinit var mMultipleStatusView: MultipleStatusView
+    lateinit var mMultipleStatusView: MultipleStatusView
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {

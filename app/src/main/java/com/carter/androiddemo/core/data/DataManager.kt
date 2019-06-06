@@ -8,7 +8,7 @@ import com.carter.androiddemo.core.preference.PreferenceHelper
 import com.carter.androiddemo.modules.login.bean.LoginData
 import io.reactivex.Observable
 
-class DataManager(private val httpHelper: HttpHelper, private val dbHelper: DBHelper, private val preferenceHelper: PreferenceHelper) : HttpHelper, DBHelper, PreferenceHelper {
+class DataManager(val httpHelper: HttpHelper, val dbHelper: DBHelper, val preferenceHelper: PreferenceHelper) : HttpHelper, DBHelper, PreferenceHelper {
 
     override fun register(username: String, password: String, rePassWord: String): Observable<BaseResponse<LoginData>> {
         return httpHelper.register(username, password, rePassWord)
