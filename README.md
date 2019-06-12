@@ -5,7 +5,7 @@
 ### ·2019.4.11 构建项目结构
 
     1 . 
-    总体结构包括：base（基础类）、core（核心类）、di（定义module和component）、
+    总体结构包括：base（基础类）、core（核心类）、di（Dependency injection 依赖注入，定义module和component）、
     modules（各功能模块，如登录、主界面）、utils（工具类）、widget（小插件）
 
     2 .
